@@ -1,0 +1,7 @@
+<div (click)="change()" class="fold">
+    <img src="../../../../assets/map/原按钮.png">
+</div>
+<div *ngIf="isShow" #unfold class="unfold">
+    <img (click)="mapSwitch('2D')" src="../../../../../../../assets/map/SLT.png">
+    <img (click)="mapSwitch('IMG')" src="../../../../../../../assets/map/遥感地图.png">
+</div>

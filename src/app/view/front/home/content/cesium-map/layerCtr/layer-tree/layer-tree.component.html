@@ -1,0 +1,43 @@
+<div id="exampleContainer" class="exampleContainer" [ngStyle]="windowStyle">
+    <div class="exampleName"> 目录树 </div>
+    <div class="exampleContainerContent">
+        <div class="bimTreeLayer" id="bimTreeLayer" style="height: calc(100vh) - 250px;">
+            <div class="search">
+                <nz-input-group [nzSuffix]="suffixIcon">
+                    <input type="text" nz-input placeholder="搜索" [(ngModel)]="searchValue" />
+                </nz-input-group>
+                <ng-template #suffixIcon>
+                    <i nz-icon nzType="search"></i>
+                </ng-template>
+            </div>
+
+            <div class="myTree">
+                <nz-tree [nzTreeTemplate]="nzTreeTemplate" [nzSearchValue]="searchValue" nzShowLine style="background-color: rgb(245, 255, 255,0);color: white;" [nzShowLine]="false" [nzData]="nodes" nzCheckable (nzContextMenu)="activeNode($event)" (nzCheckBoxChange)="nzCheckEvent($event)">
+                </nz-tree>
+                <ng-template #nzTreeTemplate let-node let-origin="origin">
+                    <span class="custom-node">
+                          <span *ngIf="!node.isLeaf">
+                            <i nz-icon [nzType]="node.isExpanded ? 'folder-open' : 'folder'"></i>
+                            <span class="folder-name">{{ node.title }}</span>
+                    </span>
+                    <span *ngIf="node.isLeaf" (contextmenu)="contextMenu($event, menu)">
+                            <i nz-icon nzType="file"></i>
+                            <span class="file-name">{{ node.title }}</span>
+                    </span>
+                    </span>
+                </ng-template>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                    <ul nz-menu>
+                        <li nz-menu-item (click)="zoomTo()">缩放至</li>
+                    </ul>
+                </nz-dropdown-menu>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="exampleContainerEF">
+    <img *ngIf="isColse" class="exampleContainerClose" id="exampleContainerClose" nz-tooltip nzPlacement="right" [nzTitle]="'关闭'" (click)="closeWindow()" src="../../../../../../assets/others/close.png" alt>
+    <img *ngIf="isFold" class="exampleContainerFold" id="exampleContainerFold" nz-tooltip nzPlacement="right" [nzTitle]="'折叠'" (click)="foldWindow()" src="../../../../../../assets/others/fold.png" alt>
+    <img *ngIf="isExpand" class="exampleContainerExpand" id="exampleContainerExpand" nz-tooltip nzPlacement="right" [nzTitle]="'展开'" (click)="expandWindow()" src="../../../../../../assets/others/expand.png" alt>
+</div>

@@ -1,0 +1,33 @@
+<!-- 首页 -->
+<div class="contain">
+    <!-- 标题头 -->
+    <div class="header">
+        <app-header></app-header>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="main">
+
+        <!-- 侧边栏 -->
+        <div class="side">
+            <app-sidebar #side [isCollapse]="isCollapse" (sideBarEvent)="sidebarCtr($event)"></app-sidebar>
+        </div>
+
+        <!-- 活动区域 -->
+        <div nz-row class="content">
+            <div nz-col [nzSpan]="panelWidth" class="active">
+                <router-outlet></router-outlet>
+            </div>
+            <div nz-col [nzSpan]="mapWidth" class="view">
+                <app-content></app-content>
+                <img (click)="closePanel()" [ngStyle]="collapseStatue" src="../../../../assets/layout/default/sidebar/collapse.png">
+            </div>
+
+            <div class="footer">
+                <app-footer></app-footer>
+            </div>
+        </div>
+
+    </div>
+
+</div>

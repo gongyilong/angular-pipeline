@@ -1,0 +1,28 @@
+.setting-input {
+    width: 60%;
+}
+
+.select-input {
+    width: 40%;
+}
+
+.avatar img {
+    width: 25%;
+    height: auto;
+}
+
+.description {
+    color: gray;
+}
+
+.info {
+    padding: 0.5rem 1rem;
+}
+
+.device-id {
+    width: 50%;
+}
+
+.device-own {
+    width: 70%;
+}

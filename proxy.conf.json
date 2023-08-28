@@ -1,0 +1,19 @@
+{
+    "/map": {
+        "target": "http://localhost:6080",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/map": ""
+        }
+    },
+
+    "/back": {
+        "target": "http://localhost:3006",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/back": ""
+        }
+    }
+}

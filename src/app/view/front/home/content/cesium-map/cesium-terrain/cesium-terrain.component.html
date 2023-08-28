@@ -1,0 +1,12 @@
+<div id="cesiumContainer" class="fullSize">
+    <div id="toolbar" style="position:absolute;z-index: 999;">
+        <label class="cesium-button" nz-checkbox [(ngModel)]="checked" (ngModelChange)="enableContourLines($event)">等高线</label><br>
+        <select id="tid" class="cesium-button" (ngModelChange)="loadModel($event)" [(ngModel)]="selectedText">
+            <option *ngFor="let model of options" value={{model.text}}>{{model.text}}</option>
+        </select>
+
+    </div>
+</div>
+<div id="loadingOverlay">
+    <h1>Loading...</h1>
+</div>

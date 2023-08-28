@@ -1,0 +1,124 @@
+.exampleContainer {
+    bottom: 70px !important;
+    left: 5px;
+    z-index: 1;
+    width: 250px;
+    position: absolute;
+    top: 80px;
+    background-color: rgba(36, 39, 48, 0.6);
+    font-family: sans-serif;
+    box-shadow: 0 0 10px #fbf7f780;
+    height: 500px;
+}
+
+.exampleContainer .exampleName {
+    width: 100%;
+    background: rgba(41, 50, 61, 0.8);
+    border-radius: 2px 2px 0px 0px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: rgb(35, 208, 255);
+    padding: 8px 8px;
+    box-sizing: border-box;
+}
+
+.exampleContainer .exampleContainerContent {
+    height: calc(100vh) - 178px;
+    padding: 12px 0;
+    box-sizing: content-box;
+}
+
+.exampleContainerEF .exampleContainerFold {
+    position: absolute;
+    left: 195px;
+    top: 80px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 9;
+    opacity: 0.8;
+}
+
+.exampleContainerEF .exampleContainerClose {
+    position: absolute;
+    left: 229px;
+    top: 80px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 9;
+    opacity: 0.8;
+}
+
+.exampleContainerEF .exampleContainerExpand {
+    position: absolute;
+    left: 25px;
+    top: 80px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    animation: toggle-panel-blink 2s infinite;
+    -webkit-animation: toggle-panel-blink 2s infinite;
+    z-index: 9;
+}
+
+.note {
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: rgb(35, 208, 255);
+    padding: 8px 8px;
+    box-sizing: border-box;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.band {
+    height: 20px;
+    width: 150px;
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.dropdown-menu.inner {
+    position: static;
+    float: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+::ng-deep .ant-select-arrow {
+    padding: 6px;
+}
+
+.bt {
+    background-color: rgba(36, 39, 48, 0.6);
+    color: #edffff;
+    cursor: pointer;
+    border: 1px solid #444;
+}
+
+.bt:hover {
+    background-color: #b9e769;
+    -webkit-box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+    -moz-box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+    box-shadow: 10px 10px 99px 6px rgba(185, 231, 105, 1);
+}

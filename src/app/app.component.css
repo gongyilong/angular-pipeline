@@ -1,0 +1,38 @@
+.contain {
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    height: 92%;
+    width: 100%;
+}
+
+.side {
+    float: left;
+    width: 4%;
+    height: 100%;
+}
+
+.content {
+    position: relative;
+    width: 96%;
+    height: 100%;
+    float: right;
+}
+
+.menu {
+    width: 100%;
+    height: 4%;
+}
+
+.view {
+    padding: 16px;
+    width: 100%;
+    height: 92%;
+}
+
+.footer {
+    width: 100%;
+    height: 4%;
+}

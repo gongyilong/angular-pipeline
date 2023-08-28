@@ -1,0 +1,114 @@
+.exampleContainer {
+    bottom: 70px !important;
+    left: 5px;
+    z-index: 1;
+    width: 250px;
+    position: absolute;
+    top: 80px;
+    background-color: rgba(36, 39, 48, 0.6);
+    font-family: sans-serif;
+    box-shadow: 0 0 10px #fbf7f780;
+    height: 450px;
+}
+
+.exampleContainer .exampleName {
+    width: 100%;
+    background: rgba(41, 50, 61, 0.8);
+    border-radius: 2px 2px 0px 0px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: rgb(35, 208, 255);
+    padding: 8px 8px;
+    box-sizing: border-box;
+}
+
+.bimTreeLayer {
+    width: auto;
+    height: calc(100vh) - 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0px 6px 2px 15px;
+    font-size: 1.0rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgb(158, 165, 175);
+}
+
+.myTree {
+    max-height: 350px;
+    overflow: auto;
+    margin: 0;
+    padding: 5px;
+}
+
+.search {
+    opacity: 0.8;
+    margin: 0;
+    padding: 5px;
+}
+
+.exampleContainer .exampleContainerContent {
+    height: calc(100vh) - 178px;
+    padding: 12px 0;
+    box-sizing: content-box;
+}
+
+:host ::ng-deep .ant-tree-checkbox-checked .ant-tree-checkbox-inner {
+    background-color: rgb(35, 208, 255);
+    border-color: rgb(35, 208, 255);
+}
+
+:host ::ng-deep .ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    background-color: rgb(35, 208, 255);
+}
+
+:host ::ng-deep .ant-tree .ant-tree-node-content-wrapper:hover {
+    background-color: rgb(35, 208, 255);
+}
+
+:host ::ng-deep .ant-tree-checkbox-indeterminate .ant-tree-checkbox-inner::after {
+    background-color: rgb(35, 208, 255);
+}
+
+.exampleContainerEF .exampleContainerFold {
+    position: absolute;
+    left: 195px;
+    top: 80px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 9;
+    opacity: 0.8;
+}
+
+.exampleContainerEF .exampleContainerClose {
+    position: absolute;
+    left: 229px;
+    top: 80px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 9;
+    opacity: 0.8;
+}
+
+.exampleContainerEF .exampleContainerExpand {
+    position: absolute;
+    left: 25px;
+    top: 80px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    animation: toggle-panel-blink 2s infinite;
+    -webkit-animation: toggle-panel-blink 2s infinite;
+    z-index: 9;
+}
+
+.custom-node {
+    cursor: pointer;
+    line-height: 24px;
+    margin-left: 4px;
+    display: inline-block;
+}

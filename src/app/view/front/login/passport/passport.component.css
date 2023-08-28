@@ -1,0 +1,18 @@
+.login-form {
+    width: 100%;
+    bottom: 50px;
+    position: absolute;
+    padding: 25px;
+}
+
+.login-form-margin {
+    margin-bottom: 12px;
+}
+
+.login-form-forget {
+    float: right;
+}
+
+.login-form-button {
+    width: 100%;
+}

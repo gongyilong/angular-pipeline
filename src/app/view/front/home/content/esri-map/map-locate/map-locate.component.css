@@ -1,0 +1,17 @@
+.search {
+    top: 30px;
+    left: 100px;
+    position: absolute;
+}
+
+.input {
+    width: 250px;
+    height: 35px;
+}
+
+.img {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    z-index: 100;
+}

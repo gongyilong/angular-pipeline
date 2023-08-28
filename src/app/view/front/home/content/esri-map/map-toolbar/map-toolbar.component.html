@@ -1,0 +1,15 @@
+<nz-button-group class="toolbar">
+    <img (click)="mapZoom('in')" nz-tooltip nzPlacement="right" [nzTitle]="'放大'" src="../../../../../../../assets/map/toolbar/zoomIn.png">
+    <nz-divider nzType="vertical"></nz-divider>
+    <img (click)="mapZoom('out')" nz-tooltip nzPlacement="right" [nzTitle]="'缩小'" src="../../../../../../../assets/map/toolbar/zoomOut.png">
+    <nz-divider nzType="vertical"></nz-divider>
+    <img (click)="fullExtent()" nz-tooltip nzPlacement="right" [nzTitle]="'全图'" src="../../../../../../../assets/map/toolbar/fullExtent.png">
+    <nz-divider nzType="vertical"></nz-divider>
+    <img [style.background]="identifyClick ? 'rgb(199, 196, 196)' : ''" nz-tooltip (click)="identify()" nzPlacement="right" [nzTitle]="'属性识别'" src="../../../../../../../assets/map/toolbar/identify.png">
+    <nz-divider nzType="vertical"></nz-divider>
+    <img [style.background]="distance ? 'rgb(199, 196, 196)' : ''" (click)="measureMent('distance')" nz-tooltip nzPlacement="right" [nzTitle]="distance ?'重置':'长度测量'" src="../../../../../../../assets/map/toolbar/measure.png">
+    <nz-divider nzType="vertical"></nz-divider>
+    <img [style.background]="area ? 'rgb(199, 196, 196)' : ''" (click)="measureMent('area')" nz-tooltip nzPlacement="right" [nzTitle]="area ?'重置':'面积测量'" src="../../../../../../../assets/map/toolbar/measureArea.png">
+    <nz-divider nzType="vertical"></nz-divider>
+    <img (click)="clear()" nz-tooltip nzPlacement="right" [nzTitle]="'清除要素'" src="../../../../../../../assets/map/toolbar/unselect.png">
+</nz-button-group>

@@ -1,0 +1,123 @@
+<div id="exampleContainer" class="exampleContainer" [ngStyle]="windowStyle">
+    <div class="exampleName"> 等高线面分析 </div>
+    <div class="exampleContainerContent">
+        <div class="item">
+            <span class="note">填充类型:</span>
+            <select id="tid" class="cesium-button" style="width: 150px;" [(ngModel)]="selectedValue" (ngModelChange)="chooseType($event)">
+                <option *ngFor="let v of options" value={{v.text}}>{{v.text}}</option>
+            </select>
+        </div>
+
+        <!-- 等高线 -->
+        <div *ngIf="isElevationLine">
+            <!-- 间距 -->
+            <div class="item">
+                <span class="note">间距:&nbsp; &nbsp; </span>
+                <input style="cursor: pointer;" type="range" min="5" max="50" step="5" [(ngModel)]="lineSpace" (ngModelChange)="lineSpaceChange($event)">
+                <p style="color: aqua;font-size: xx-small;" ngDefaultControl [(ngModel)]="lineSpace">{{lineSpace}}m</p>
+            </div>
+            <!-- 线宽 -->
+            <div class="item">
+                <span class="note">线宽:&nbsp; &nbsp;</span>
+                <input style="cursor: pointer;" type="range" min="1" max="5" step="0.5" [(ngModel)]="lineWidth" (ngModelChange)="lineWidthChange($event)">
+                <p style="color: aqua;font-size: xx-small;" ngDefaultControl [(ngModel)]="lineWidth">{{lineWidth}}px</p>
+            </div>
+            <!-- 颜色 -->
+            <div class="item">
+                <span class="note">颜色:&nbsp; &nbsp;</span>
+                <input style="padding: 4px;height: 25px;line-height: 25px;margin-top: 6px;" [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="colorPickerChange()" />
+            </div>
+        </div>
+
+        <!-- 等高面 -->
+        <div *ngIf="isElevationPlygon">
+            <!-- 填充图例 -->
+            <div class="item">
+                <span class="note">填充图例:&nbsp; &nbsp;</span>
+                <span style="color: white;padding: 8px 8px;">{{minHeight}}m -------- {{maxHeight}}m</span>
+            </div>
+
+            <!-- 填充颜色 -->
+            <div class="item">
+                <span class="note">色带:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <nz-select style="padding: 2px 4px;height: 20px;line-height: 20px;width: 170px;" [nzCustomTemplate]="defaultTemplate" [ngModel]="bandOptions[0]">
+                    <nz-option nzCustomContent *ngFor="let option of bandOptions" [nzValue]="option">
+                        <span class="band" [ngStyle]="option.style" (click)="getBandValue(option.value)">
+                            &nbsp;
+                        </span>
+                    </nz-option>
+                </nz-select>
+                <ng-template #defaultTemplate let-selected>
+                    <span class="band" [ngStyle]="selected.nzValue.style">
+                        &nbsp;
+                    </span>
+                </ng-template>
+            </div>
+
+            <!-- 面透明度 -->
+            <div class="item">
+                <span class="note">面透明度:&nbsp; &nbsp;</span>
+                <input style="cursor: pointer;" type="range" min="0" max="1" step="0.1" [(ngModel)]="fillOpcity" (ngModelChange)="fillOpcityChange($event)">
+                <p style="color: aqua;font-size: xx-small;" ngDefaultControl [(ngModel)]="fillOpcity">{{fillOpcity}}</p>
+            </div>
+
+            <!-- 最小高度 -->
+            <div class="item">
+                <span class="note">最小高度:&nbsp; &nbsp;</span>
+                <input style="cursor: pointer;" type="range" min="0" max="1500" step="100" [(ngModel)]="minHeight" (ngModelChange)="minHeightChange($event)">
+                <p style="color: aqua;font-size: xx-small;" ngDefaultControl [(ngModel)]="minHeight">{{minHeight}}m</p>
+            </div>
+
+            <!-- 最大高度 -->
+            <div class="item">
+                <span class="note">最大高度:&nbsp; &nbsp;</span>
+                <input style="cursor: pointer;" type="range" min="200" max="2000" step="100" [(ngModel)]="maxHeight" (ngModelChange)="maxHeightChange($event)">
+                <p style="color: aqua;font-size: xx-small;" ngDefaultControl [(ngModel)]="maxHeight">{{maxHeight}}m</p>
+            </div>
+
+            <!-- 是否添加等高线 -->
+            <div class="item">
+                <span class="note">是否添加等高线:</span>
+                <label class="note" nz-checkbox [(ngModel)]="checked" (ngModelChange)="showLineChange($event)"></label>
+            </div>
+
+            <div *ngIf="checked">
+                <!-- 间距 -->
+                <div class="item">
+                    <span class="note">间距:&nbsp; &nbsp; </span>
+                    <input style="cursor: pointer;" type="range" min="5" max="50" step="5" [(ngModel)]="lineSpace" (ngModelChange)="lineSpaceChange($event)">
+                    <p style="color: aqua;font-size: xx-small;" ngDefaultControl [(ngModel)]="lineSpace">{{lineSpace}}m</p>
+                </div>
+                <!-- 线宽 -->
+                <div class="item">
+                    <span class="note">线宽:&nbsp; &nbsp;</span>
+                    <input style="cursor: pointer;" type="range" min="1" max="5" step="0.5" [(ngModel)]="lineWidth" (ngModelChange)="lineWidthChange($event)">
+                    <p style="color: aqua;font-size: xx-small;" ngDefaultControl [(ngModel)]="lineWidth">{{lineWidth}}px</p>
+                </div>
+                <!-- 颜色 -->
+                <div class="item">
+                    <span class="note">颜色:&nbsp; &nbsp;</span>
+                    <input style="padding: 4px;height: 25px;line-height: 25px;margin-top: 6px;" [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="colorPickerChange()" />
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div style="display: flex;flex-direction: row;justify-content: space-around;margin-top: 20px;">
+            <button class="bt" nz-button nzType="default" (click)="create()">开始创建</button>
+            <button class="bt" nz-button nzType="default" (click)="remove()">重置</button><br><br>
+        </div>
+
+        <!-- <button nz-button nzType="default" (click)="start()">开始绘制</button>
+        <button nz-button nzType="default" (click)="clean()">清除</button><br><br> -->
+
+    </div>
+</div>
+
+<div class="exampleContainerEF">
+    <img *ngIf="isColse" class="exampleContainerClose" id="exampleContainerClose" nz-tooltip nzPlacement="right" [nzTitle]="'关闭'" (click)="closeWindow()" src="../../../../../../../../assets/others/close.png" alt>
+    <img *ngIf="isFold" class="exampleContainerFold" id="exampleContainerFold" nz-tooltip nzPlacement="right" [nzTitle]="'折叠'" (click)="foldWindow()" src="../../../../../../../../assets/others/fold.png" alt>
+    <img *ngIf="isExpand" class="exampleContainerExpand" id="exampleContainerExpand" nz-tooltip nzPlacement="right" [nzTitle]="'展开'" (click)="expandWindow()" src="../../../../../../../../assets/others/expand.png" alt>
+</div>

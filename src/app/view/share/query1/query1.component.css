@@ -1,0 +1,10 @@
+.info {
+    width: 350px;
+    height: 200px;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    right: 200px;
+    top: 200px;
+    z-index: 199;
+    background-color: white;
+}

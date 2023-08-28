@@ -1,0 +1,27 @@
+.layer {
+    width: 100%;
+    /* margin-top: 7%; */
+    margin-top: 2%;
+}
+
+.filed {
+    /* list-style-type: none;s */
+    padding: 2px;
+    cursor: pointer;
+}
+
+.filed:hover {
+    background-color: rgb(220, 229, 238);
+}
+
+.fileds {
+    margin-top: 10px;
+    border: 0.2px solid gainsboro;
+    height: 120px;
+    overflow-y: scroll;
+}
+
+.title {
+    font-weight: bold;
+    margin: 8px 2px 16px 2px;
+}

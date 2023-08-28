@@ -1,0 +1,87 @@
+<div id="exampleContainer" class="exampleContainer" [ngStyle]="windowStyle">
+    <div class="exampleName"> 坡度坡向分析 </div>
+    <div class="exampleContainerContent">
+        <div class="item">
+            <span class="note">填充样式:</span>
+            <select id="tid" class="cesium-button" style="width: 150px;" [(ngModel)]="selectedValue" (ngModelChange)="chooseType($event)">
+                <option *ngFor="let v of options" value={{v.text}}>{{v.text}}</option>
+            </select>
+        </div>
+
+        <!-- 自定义颜色表 -->
+        <div *ngIf="isDIY">
+            <!-- 设置坡度区间 -->
+            <div class="item">
+                <span class="note">坡度区间 &nbsp; &nbsp; </span>
+                <span class="note">设置颜色 &nbsp; &nbsp; </span>
+            </div>
+            <!-- 0° ---- 10° -->
+            <div class="item">
+                <span class="note">&nbsp;&nbsp;0°--10°:&nbsp; &nbsp;</span>
+                <input style="padding: 4px;height: 25px;line-height: 25px;margin-top: 6px;width: 150px;cursor: pointer;" [(colorPicker)]="color1" [style.background]="color1" />
+            </div>
+            <!-- 10°--20° -->
+            <div class="item">
+                <span class="note">10°--20°:&nbsp; &nbsp;</span>
+                <input style="padding: 4px;height: 25px;line-height: 25px;margin-top: 6px;width: 150px;cursor: pointer;" [(colorPicker)]="color2" [style.background]="color2" />
+            </div>
+            <!-- 20°--30° -->
+            <div class="item">
+                <span class="note">20°--30°:&nbsp; &nbsp;</span>
+                <input style="padding: 4px;height: 25px;line-height: 25px;margin-top: 6px;width: 150px;cursor: pointer;" [(colorPicker)]="color3" [style.background]="color3" />
+            </div>
+            <!-- 30°--40° -->
+            <div class="item">
+                <span class="note">30°--40°:&nbsp; &nbsp;</span>
+                <input style="padding: 4px;height: 25px;line-height: 25px;margin-top: 6px;width: 150px;cursor: pointer;" [(colorPicker)]="color4" [style.background]="color4" />
+            </div>
+            <!-- 40°--90° -->
+            <div class="item">
+                <span class="note">40°--90°:&nbsp; &nbsp;</span>
+                <input style="padding: 4px;height: 25px;line-height: 25px;margin-top: 6px;width: 150px;cursor: pointer;" [(colorPicker)]="color5" [style.background]="color5" />
+            </div>
+
+        </div>
+
+        <!-- 渐变纹理 -->
+        <div *ngIf="isGradual">
+            <!-- 填充图例 -->
+            <div class="item">
+                <span class="note">填充图例:&nbsp; &nbsp;</span>
+                <span style="color: white;padding: 8px 8px;">0° -------- 90°</span>
+            </div>
+
+            <!-- 填充颜色 -->
+            <div class="item">
+                <span class="note">填充颜色:</span>
+                <nz-select style="padding: 2px 4px;height: 20px;line-height: 20px;width: 155px;" [nzCustomTemplate]="defaultTemplate" [ngModel]="bandOptions[0]">
+                    <nz-option nzCustomContent *ngFor="let option of bandOptions" [nzValue]="option">
+                        <span class="band" [ngStyle]="option.style" (click)="getBandValue(option.value)">
+                            &nbsp;
+                        </span>
+                    </nz-option>
+                </nz-select>
+                <ng-template #defaultTemplate let-selected>
+                    <span class="band" [ngStyle]="selected.nzValue.style">
+                        &nbsp;
+                    </span>
+                </ng-template>
+            </div>
+
+        </div>
+
+
+        <div style="display: flex;flex-direction: row;justify-content: space-around;margin-top: 20px;">
+            <button class="bt" nz-button nzType="default" (click)="create()">开始创建</button>
+            <button class="bt" nz-button nzType="default" (click)="remove()">重置</button><br><br>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="exampleContainerEF">
+    <img *ngIf="isColse" class="exampleContainerClose" id="exampleContainerClose" nz-tooltip nzPlacement="right" [nzTitle]="'关闭'" (click)="closeWindow()" src="../../../../../../../../assets/others/close.png" alt>
+    <img *ngIf="isFold" class="exampleContainerFold" id="exampleContainerFold" nz-tooltip nzPlacement="right" [nzTitle]="'折叠'" (click)="foldWindow()" src="../../../../../../../../assets/others/fold.png" alt>
+    <img *ngIf="isExpand" class="exampleContainerExpand" id="exampleContainerExpand" nz-tooltip nzPlacement="right" [nzTitle]="'展开'" (click)="expandWindow()" src="../../../../../../../../assets/others/expand.png" alt>
+</div>

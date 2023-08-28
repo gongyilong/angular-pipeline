@@ -1,0 +1,22 @@
+.toolbar {
+    border-radius: 2px;
+    opacity: 1;
+    background: white;
+    top: 30px;
+    left: 570px;
+    position: absolute;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .25);
+    transition: all .2s ease-in-out;
+}
+
+nz-button-group img {
+    margin: 4px 2px;
+    padding: 2px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+nz-button-group img:hover {
+    background: rgb(199, 196, 196);
+}

@@ -1,0 +1,17 @@
+<!-- 图层 -->
+<div class="layer" nz-row>
+    <span nz-col [nzSpan]="7">图&emsp;层：</span>
+    <nz-tree-select #layerTree nz-col [nzSpan]="17" [(ngModel)]="value" [nzNodes]="nodes" (nzTreeClick)="mouseAction('click', $event)" nzShowSearch nzPlaceHolder="请选择图层">
+    </nz-tree-select>
+</div>
+
+<!-- 属性字段 -->
+<div class="layer" nz-row>
+    <span nz-col [nzSpan]="7" style="line-height: 31px;">属性字段：</span>
+    <nz-input-group nz-col [nzSpan]="17" nzCompact>
+        <nz-select [disabled]="opStatue" style="width: 48%;" nz-tooltip nzTooltipTitle={{selectedValue}} (ngModelChange)="selectedField($event)" [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="请选择">
+            <nz-option *ngFor="let option of optionList" [nzValue]="option.name" [nzLabel]="option.alias"></nz-option>
+        </nz-select>
+        <input [disabled]="opStatue" style="width: 52%;" nz-input [(ngModel)]="inputValue" (ngModelChange)="inputFieldVal($event)">
+    </nz-input-group>
+</div>

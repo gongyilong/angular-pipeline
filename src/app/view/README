@@ -1,0 +1,58 @@
+# view说明——用于存放项目中所有组件
+# 目录结构：
+
+
++ front（前端界面）
+  + home（系统主页）
+    + header（标题栏）
+      + header-user（标题栏-用户组件）
+      + header（布局）
+    + sidebar（侧边栏）
+      + dataQuery（数据查询）
+      + accAnalyse（统计分析）
+      + auxiVerify（辅助审核）
+      + dataUpdate（数据更新）
+      + siderbar（布局）
+    + content（中心内容）
+      + esri-map（地图容器）
+        + map-layerList（图层树）
+        + map-switch（底图切换）
+        + map-toolbar（地图操作工具条）
+        + map-locate（快速定位）
+        + map-view（地图容器）
+        + ...
+      + cesium-map
+        + ...
+      + content（内容布局）
+    + footer（底部）
+    + home（布局）
+  + login（登录界面）
+    + passport（登录栏）
+    + login（布局）
+
+
++ back（后台界面）
+  + users（用户管理）
+    + users-group（群组管理）
+    + users-permission（权限分配）
+  + assets（资产管理）
+    + assets-files（项目文件）
+  + maps（地图管理）
+    + maps-serve（服务管理）
+  + personal（个人中心）
+    + personal-info（个人信息）
+    + personal-setting（设置）
+  + back（布局）
+
+
++ share（共享组件）
+  + erroHtml（错误页提示）
+    + 401 (401错误页)
+    + 403（403错误页）
+    + 404（404错误页）
+    + 500（500错误页）
+  + table（表格模板）
+  + layer（图层相关操作）
+    + layer-choose（图层下拉选择）
+    + fileds-choose（字段下拉选择）
+  + ...（其他）

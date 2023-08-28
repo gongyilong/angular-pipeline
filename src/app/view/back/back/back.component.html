@@ -1,0 +1,59 @@
+<nz-layout style="height: 100%;" class="layout">
+
+    <nz-sider [nzCollapsedWidth]="48" [nzWidth]="160" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div class="sider-layout">
+            <div class="logo">
+                <a>
+                    <img src="../../../../../assets/layout/default/header/logo4.png" alt="logo">
+                    <h1 *ngIf="!isCollapsed">系统管理</h1>
+                </a>
+            </div>
+            <ul nz-menu nzTheme="dark" nzMode="inline">
+                <li nz-submenu nzTitle="用户管理" nzIcon="team">
+                    <ul>
+                        <li nz-menu-item routerLink="users">群组管理</li>
+                        <!-- <li nz-menu-item routerLink="permission">权限分配</li> -->
+                    </ul>
+                </li>
+                <li nz-submenu nzTitle="地图管理" nzIcon="environment">
+                    <ul>
+                        <li nz-menu-item routerLink="maps">GIS服务</li>
+                        <li nz-menu-item routerLink="cmaps">Cesium服务</li>
+                    </ul>
+                </li>
+                <!-- <li nz-submenu nzTitle="资产管理" nzIcon="table">
+                    <ul>
+                        <li nz-menu-item routerLink="assets">项目文件</li>
+                    </ul>
+                </li> -->
+                <li nz-submenu nzTitle="个人中心" nzIcon="user">
+                    <ul>
+                        <li nz-menu-item routerLink="info">个人信息</li>
+                        <li nz-menu-item routerLink="setting">修改</li>
+                    </ul>
+                </li>
+                <li nz-submenu nzTitle="系统设置" nzIcon="setting">
+                    <ul>
+                        <!-- <li nz-menu-item routerLink="info">个人信息</li> -->
+                        <li nz-menu-item routerLink="setting">设置</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nz-sider>
+
+    <nz-layout class="right-layout">
+        <nz-layout class="head-layout">
+            <nz-header>
+                <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+                <app-back-user class="nav1"></app-back-user>
+            </nz-header>
+        </nz-layout>
+
+
+        <nz-content class="content">
+            <router-outlet></router-outlet>
+        </nz-content>
+        <nz-footer>CopyRight © 2021 珠海市规划设计研究院. All Rights Reserved.</nz-footer>
+    </nz-layout>
+</nz-layout>

@@ -1,0 +1,69 @@
+<div nz-row [nzGutter]="16">
+    <div nz-col class="gutter-row" [nzSpan]="24">
+        <div class="inner-box">
+            <nz-card class="info">
+                <div nz-row>
+                    <div nz-col nzSpan="10">
+                        <nz-input-group nzCompact>
+                            <nz-select style="width: 120px;" nz-tooltip nzTooltipTitle={{selectedValue}} [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="请选择字段">
+                                <nz-option *ngFor="let option of optionList" [nzValue]="option.value" [nzLabel]="option.label"></nz-option>
+                            </nz-select>
+                            <input nz-input style="width: 200px;" [(ngModel)]="searchValue">
+                            <button nz-button nzType="default" (click)="search()"><i nz-icon nzType="search"></i>筛选</button>&nbsp;
+                            <button nz-button nzType="default" (click)="reset()">重置</button>
+                        </nz-input-group>
+                    </div>
+                    <div nz-col nzSpan="4" nzOffset="10">
+                        <button style="float: right;" nz-button nzType="primary" (click)="addRow()">新增</button>
+                    </div>
+                </div>
+
+
+                <br />
+                <br />
+                <nz-table #sortTable [nzData]="listOfDisplayData" nzTableLayout="auto">
+
+                    <thead>
+                        <tr>
+                            <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of sortTable.data">
+                            <ng-container *ngIf="!editCache[data.Id].edit; else editTemplate">
+                                <td>{{ data.Id }}</td>
+                                <td>{{ data.UserName }}</td>
+                                <td>{{ data.Password }}</td>
+                                <td>{{ data.Department }}</td>
+                                <td>{{ data.Role }}</td>
+                                <td>{{ data.PhoneNum }}</td>
+                                <td>{{ data.Email }}</td>
+                                <td>{{ data.LoginTime }}</td>
+                                <td>
+                                    <a (click)="startEdit(data.Id)">编辑</a>
+                                    <nz-divider nzType="vertical"></nz-divider>
+                                    <a nz-popconfirm nzPopconfirmTitle="确定删除?" (nzOnConfirm)="deleteRow(data.Id)">删除</a>
+                                </td>
+                            </ng-container>
+                            <ng-template #editTemplate>
+                                <td>{{ data.Id }}</td>
+                                <td><input type="text" nz-input [(ngModel)]="editCache[data.Id].data.UserName" /></td>
+                                <td><input [type]="password" nz-input [(ngModel)]="editCache[data.Id].data.Password" /></td>
+                                <td><input type="text" nz-input [(ngModel)]="editCache[data.Id].data.Department" /></td>
+                                <td><input type="text" nz-input [(ngModel)]="editCache[data.Id].data.Role" /></td>
+                                <td><input type="text" nz-input [(ngModel)]="editCache[data.Id].data.PhoneNum" /></td>
+                                <td><input type="text" nz-input [(ngModel)]="editCache[data.Id].data.Email" /></td>
+                                <td>{{ data.LoginTime }}</td>
+                                <td>
+                                    <a (click)="saveEdit(data.Id)" class="save">保存</a>
+                                    <nz-divider nzType="vertical"></nz-divider>
+                                    <a nz-popconfirm nzTitle="确定取消?" (nzOnConfirm)="cancelEdit(data.Id)">取消</a>
+                                </td>
+                            </ng-template>
+                        </tr>
+                    </tbody>
+                </nz-table>
+            </nz-card>
+        </div>
+    </div>
+</div>

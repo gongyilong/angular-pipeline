@@ -1,0 +1,77 @@
+<!-- 高级条件 -->
+<div class="layer" nz-row>
+    <nz-input-group nzCompact>
+        <button (click)="showModal()" nz-button style="width:100%;" [nzType]="'dashed'" class="ant-btn__block mb-sm">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>更多条件
+          </button>
+    </nz-input-group>
+</div>
+
+<!-- 高级查询面板 -->
+<nz-modal nzWrapClassName="vertical-center-modal" [(nzVisible)]="isVisibleMiddle" nzMask="false" nzTitle="查询条件" nzOkText="确认" nzCancelText="取消" (nzOnCancel)="handleCancelMiddle()" (nzOnOk)="handleOkMiddle()">
+    <!-- 属性名称 -->
+    <div style="height: 30%;margin-top:10px;width: 100%;">
+        <span class="title">属性字段：</span>
+        <ul class="fileds">
+            <li class="filed" *ngFor="let item of optionList" (click)="getFiled(item)">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+
+    <span class="title">运算符：</span>
+    <!-- 计算器 -->
+    <div style="height: 40%;margin-top:10px;width: 100%;">
+        <div nz-row>
+            <div nz-col nzSpan="24">
+                <div nz-row [nzGutter]="[4, 8]">
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('=')">&nbsp;=&nbsp;</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('<>')"><></button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('LIKE')">LIKE&nbsp;</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('>')">&nbsp;>&nbsp;</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('>=')">>=</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('AND')">AND</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('<')">&nbsp;<&nbsp;</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('<=')"><=</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('OR')">&nbsp;OR&nbsp;&nbsp;</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('%')">&nbsp;%&nbsp;</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('()')">(&nbsp;&nbsp;&nbsp;)</button>
+                    </div>
+                    <div nz-col class="gutter-row" [nzSpan]="4">
+                        <button nz-button nzType="default" [nzSize]="'small'" (click)="getOperator('NOT')">NOT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 属性名称 -->
+    <div style="height: 30%;margin-top:10px;width: 100%;">
+        <span class="title">SQL语句：</span><br>
+        <span>（SELECT * FROM LAYER WHERE）</span>
+        <div class="fileds">
+            <textarea rows="4" nz-input [(ngModel)]="sql"></textarea>
+        </div>
+    </div>
+</nz-modal>

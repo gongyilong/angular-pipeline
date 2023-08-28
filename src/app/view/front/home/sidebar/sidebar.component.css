@@ -1,0 +1,35 @@
+.menu {
+    /* background: #021B79; */
+    background: #162F58;
+    height: 100%;
+    width: 48px;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.item {
+    padding: 1rem 0.2rem;
+    cursor: pointer;
+    border-bottom: 0.2px solid whitesmoke;
+}
+
+.item img {
+    width: 24px;
+    height: 24px;
+}
+
+.collapse {
+    position: fixed;
+    left: 420px;
+    top: 50%;
+    margin-top: -33px;
+    cursor: pointer;
+}

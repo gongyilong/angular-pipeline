@@ -1,0 +1,32 @@
+.header {
+    height: 48px;
+    width: 100%;
+    background-image: url(../../../../../../assets/layout/default/header/header.png);
+    background-size: cover;
+    font-weight: bold;
+    font-size: large;
+    line-height: 48px;
+    color: rgb(247, 245, 247);
+}
+
+.logo img {
+    float: left;
+    width: 48px;
+    height: 48px;
+    padding: 6px;
+    margin-right: 6px;
+}
+
+.user {
+    text-align: center;
+    vertical-align: middle;
+    float: right;
+    padding: 4px;
+    margin: 4px auto;
+}
+
+.nav {
+    position: fixed;
+    right: 0.5rem;
+    cursor: pointer;
+}

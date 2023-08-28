@@ -1,0 +1,28 @@
+<div class="menu">
+    <div class="menu-list">
+        <div class="item" (click)="locationShow()" #location style="display: none;">
+            <img src="../../../../assets/layout/default/sidebar/locate.png" />
+            <br/>快速<br/>定位
+        </div>
+        <div class="item" (click)="dataQueryShow()" #dataQuery>
+            <img src="../../../../assets/layout/default/sidebar/query.png" />
+            <br/>数据<br/>查询
+        </div>
+        <div style="display: none;" class="item" (click)="auxiVerifyShow()" #auxiVerify>
+            <img src="../../../../assets/layout/default/sidebar/verify.png" />
+            <br/>数据标准配置<br/>与更新
+        </div>
+        <div style="display: none;" class="item" (click)="accAnalyseShow()" #accAnalyse>
+            <img src="../../../../assets/layout/default/sidebar/statistics.png" />
+            <br/>数据监理<br/>验核
+        </div>
+        <div style="display: none;" class="item" (click)="dataUpdateShow()" #dataUpdate>
+            <img src="../../../../assets/layout/default/sidebar/update.png" />
+            <br/>数据<br/>成果入库
+        </div>
+        <div style="display: none;" class="item" (click)="dataUpdateShow()" #dataUpdate>
+            <img src="../../../../assets/layout/default/sidebar/update.png" />
+            <br/>成果<br/>数据调用
+        </div>
+    </div>
+</div>

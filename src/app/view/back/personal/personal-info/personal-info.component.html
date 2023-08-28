@@ -1,0 +1,56 @@
+<div nz-row [nzGutter]="16">
+    <div nz-col class="gutter-row" [nzSpan]="6">
+        <div class="inner-box">
+            <nz-card class="info">
+                <div class="avatar">
+                    <img src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png">
+                </div>
+                <div class="name">
+                    {{avatar}}
+                </div>
+                <div>
+                    <p><i nz-icon nzType="partition" nzTheme="outline"></i>&nbsp;部门：{{user.Department}}</p>
+                    <p><i nz-icon nzType="tag" nzTheme="outline"></i>&nbsp;角色：{{user.Role}}</p>
+                    <p><i nz-icon nzType="phone" nzTheme="outline"></i>&nbsp;联系电话：{{user.PhoneNum}}</p>
+                    <p><i nz-icon nzType="mail" nzTheme="outline"></i>&nbsp;电子邮箱：{{user.Email}}</p>
+                </div>
+            </nz-card>
+        </div>
+    </div>
+
+    <!-- 信息详情 -->
+    <div nz-col class="gutter-row" [nzSpan]="18">
+        <div class="inner-box">
+            <nz-card class="info-detail">
+                <nz-tabset>
+                    <nz-tab nzTitle="基本信息">
+                        <div nz-row class="base-info">
+                            <div nz-col [nzXs]="{ span: 5, offset: 1 }" [nzLg]="{ span: 6, offset: 2 }">
+                                <i nz-icon nzType="smile" nzTheme="outline"></i><label>&nbsp;姓名：{{user.UserName}}</label>
+                            </div>
+                            <div nz-col [nzXs]="{ span: 11, offset: 1 }" [nzLg]="{ span: 6, offset: 2 }">
+                                <i nz-icon nzType="tag" nzTheme="outline"></i><label>&nbsp;角色：{{user.Role}}</label>
+                            </div>
+                            <div nz-col [nzXs]="{ span: 5, offset: 1 }" [nzLg]="{ span: 6, offset: 2 }">
+                                <i nz-icon nzType="partition" nzTheme="outline"></i><label>&nbsp;部门：{{user.Department}}</label>
+                            </div>
+                        </div>
+                        <div nz-row class="base-info">
+                            <div nz-col [nzXs]="{ span: 5, offset: 1 }" [nzLg]="{ span: 6, offset: 2 }">
+                                <i nz-icon nzType="phone" nzTheme="outline"></i><label>&nbsp;联系电话：{{user.PhoneNum}}</label>
+                            </div>
+                            <div nz-col [nzXs]="{ span: 11, offset: 1 }" [nzLg]="{ span: 10, offset: 2 }">
+                                <i nz-icon nzType="mail" nzTheme="outline"></i><label>&nbsp;电子邮箱：{{user.Email}}</label>
+                            </div>
+                        </div>
+                    </nz-tab>
+
+                    <nz-tab nzTitle="教育经历">
+                    </nz-tab>
+                    <nz-tab nzTitle="工作经历">
+                    </nz-tab>
+                </nz-tabset>
+            </nz-card>
+        </div>
+    </div>
+</div>

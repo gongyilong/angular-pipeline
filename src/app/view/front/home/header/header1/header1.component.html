@@ -1,0 +1,151 @@
+<div class="header">
+    <div class="logo">
+        <img src="../../../../../../assets/layout/default/header/logo8.png" />
+    </div>
+    <!-- <span style="font-style: italic;line-height: 54px;">
+        城 市 信 息 模 型 三 维 可 视 化 平 台  / 
+     </span> -->
+    <!-- <span style="color: antiquewhite;font-size: small;font-style: italic;">
+       ZHUP CIM v1.0
+     </span> -->
+    <span style="font-style: italic;line-height: 54px;">
+        珠 海 市 轨 道 交 通 运 营 安 全 监 管 平 台  / 
+     </span>
+
+    <span style="color: antiquewhite;font-size: small;font-style: italic;">
+        ZHUHAI RAILWAY
+      </span>
+    <div style="height: 100%;float: right;display: flex;flex-direction: column;">
+        <div class="bt-group" style="height: 50%;">
+            <nz-button-group style="float: right;">
+                <img nz-tooltip nzPlacement="right" [nzTitle]="'主页'" (click)="goHome()" src="../../../../../../assets/layout/default/header1/home.png">
+                <img nz-tooltip nzPlacement="right" [nzTitle]="'全屏'" (click)="fullScreen()" src="../../../../../../assets/layout/default/header1/expand.png">
+                <img nz-tooltip nzPlacement="right" [nzTitle]="'后台'" (click)="goBack()" src="../../../../../../assets/layout/default/header1/cloud.png">
+                <img nz-tooltip nzPlacement="right" [nzTitle]="'关闭'" (click)="close()" src="../../../../../../assets/layout/default/header1/close.png">
+            </nz-button-group>
+        </div>
+        <div class="menu-contain">
+
+            <div class="menu-item">
+                <a class="menu-item-label" nz-dropdown [nzDropdownMenu]="menu1">
+                    <!-- 图层管理 -->
+                    数据浏览
+                    <i nz-icon nzType="down"></i>
+                </a>
+                <nz-dropdown-menu #menu1="nzDropdownMenu">
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item (click)="goTab('layer')"><i nz-icon nzType="tags"></i>资源目录</li>
+                        <!-- <li nz-menu-item><i nz-icon nzType="tags"></i>其他</li> -->
+                    </ul>
+                </nz-dropdown-menu>
+            </div>
+
+            <div class="menu-item">
+                <a class="menu-item-label" nz-dropdown [nzDropdownMenu]="menu5">
+                    <!-- 辅助工具 -->
+                    数据查询
+                    <i nz-icon nzType="down"></i>
+                </a>
+                <nz-dropdown-menu #menu5="nzDropdownMenu">
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item (click)="goTab('measure')"><i nz-icon nzType="tags"></i>地图量测</li>
+                    </ul>
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item><i nz-icon nzType="tags"></i>双屏比对</li>
+                    </ul>
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item><i nz-icon nzType="tags"></i>卷帘</li>
+                    </ul>
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item><i nz-icon nzType="tags"></i>截屏</li>
+                    </ul>
+                </nz-dropdown-menu>
+            </div>
+
+            <div class="menu-item">
+                <a class="menu-item-label" nz-dropdown [nzDropdownMenu]="menu2">
+                    <!-- 空间分析 -->
+                    运营安全管理
+                    <i nz-icon nzType="down"></i>
+                </a>
+                <nz-dropdown-menu #menu2="nzDropdownMenu">
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item (click)="goTab('viewshed')"><i nz-icon nzType="tags"></i>可视域分析</li>
+                        <li nz-menu-item (click)="goTab('visiable')"><i nz-icon nzType="tags"></i>通视分析</li>
+                    </ul>
+                </nz-dropdown-menu>
+            </div>
+
+            <div class="menu-item">
+                <a class="menu-item-label" nz-dropdown [nzDropdownMenu]="menu3">
+                    <!-- 地形分析 -->
+                    运营服务管理
+                    <i nz-icon nzType="down"></i>
+                </a>
+                <nz-dropdown-menu #menu3="nzDropdownMenu">
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item (click)="goTab('elevation')"><i nz-icon nzType="tags"></i>等高线</li>
+                        <li nz-menu-item (click)="goTab('terrainOpcity')"><i nz-icon nzType="tags"></i>地形透明度</li>
+                        <!-- <li nz-menu-item (click)="goTab('slope')"><i nz-icon nzType="tags"></i>坡度坡向</li> -->
+                    </ul>
+                </nz-dropdown-menu>
+            </div>
+
+            <!-- <div class="menu-item" style="margin-right: 16px;">
+                <a class="menu-item-label" nz-dropdown [nzDropdownMenu]="menu4">
+                    专题应用
+                    <i nz-icon nzType="down"></i>
+                </a>
+                <nz-dropdown-menu #menu4="nzDropdownMenu">
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item><i nz-icon nzType="tags"></i>管线三维</li>
+                        <li nz-menu-item><i nz-icon nzType="tags"></i>地下管线</li>
+                        <li nz-menu-item><i nz-icon nzType="tags"></i>栈道选址</li>
+                        <li nz-menu-item><i nz-icon nzType="tags"></i>轨道交通</li>
+                    </ul>
+                </nz-dropdown-menu>
+            </div> -->
+
+            <!-- <div class="menu-item" style="margin-right: 16px;">
+                <a class="menu-item-label" nz-dropdown [nzDropdownMenu]="menu6">
+                    数字城市
+                    <i nz-icon nzType="down"></i>
+                </a>
+                <nz-dropdown-menu #menu6="nzDropdownMenu">
+                    <ul class="menu-dropdown" nz-menu>
+                        <li nz-menu-item><i nz-icon nzType="tags"></i>建设中</li>
+                    </ul>
+                </nz-dropdown-menu>
+            </div> -->
+        </div>
+
+    </div>
+</div>
+
+<div class="content">
+    <app-cmap-view></app-cmap-view>
+
+    <!-- 子组件 -->
+    <!-- 图层管理 -->
+    <app-layer-tree *ngIf="layerShow" (isLayerShow)="getLayerShow($event)"></app-layer-tree>
+
+    <!-- 空间分析 -->
+    <!-- 通视分析 -->
+    <app-visiable *ngIf="visiableShow" (isVisiableShow)="getVisiableShow($event)"></app-visiable>
+    <!-- 可视域分析 -->
+    <app-viewshed *ngIf="viewshedShow" (isViewshedShow)="getViewshedShow($event)"></app-viewshed>
+
+
+    <!-- 地形分析 -->
+    <!-- 等高线 -->
+    <app-elevation *ngIf="elevationShow" (isElevationShow)="getElevationShow($event)"></app-elevation>
+    <!-- 坡度坡向 -->
+    <app-slope *ngIf="slopeShow" (isSlopeShow)="getSlopeShow($event)"></app-slope>
+    <!-- 地形透明度 -->
+    <app-underground *ngIf="terrainOpcityShow" (isTerrianOpcityShow)="getTerrainOpcityShow($event)"></app-underground>
+
+    <!-- 辅助工具 -->
+    <!-- 地图绘制 -->
+    <app-measure *ngIf="measureShow" (isMeasureShow)="getMeasureShow($event)"></app-measure>
+
+</div>

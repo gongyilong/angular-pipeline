@@ -1,0 +1,8 @@
+<div class="search">
+    <nz-input-group nzCompact>
+        <nz-select style="width: 220px;" [nzSize]="'large'" nzShowSearch nzServerSearch nzPlaceHolder="珠海站" [(ngModel)]="selectedValue" [nzShowArrow]="false" [nzFilterOption]="nzFilterOption" (nzOnSearch)="search($event)">
+            <nz-option *ngFor="let o of listOfOption" [nzLabel]="o.text" [nzValue]="o.value"> </nz-option>
+        </nz-select>
+        <button (click)="query()" [nzSize]="'large'" nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+    </nz-input-group>
+</div>

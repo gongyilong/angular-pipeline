@@ -1,0 +1,18 @@
+<div class="user" nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="userMenu">
+    <nz-avatar nzIcon="user" nzSize="small" class="mr-sm"></nz-avatar>
+    <span style="color: black;"> {{ avatar }} </span>
+</div>
+
+<!--下拉框选项-->
+<nz-dropdown-menu #userMenu="nzDropdownMenu">
+    <div nz-menu class="width-sm">
+        <!-- <div nz-menu-item routerLink="/home" routerLinkActive="active"> -->
+        <div nz-menu-item (click)="goHome()">
+            <i nz-icon nzType="home" class="mr-sm"></i> 返回主页
+        </div>
+        <li nz-menu-divider></li>
+        <div nz-menu-item (click)="loginOut()">
+            <i nz-icon nzType="logout" class="mr-sm"></i> 退出登录
+        </div>
+    </div>
+</nz-dropdown-menu>

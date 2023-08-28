@@ -1,0 +1,26 @@
+.fold {
+    position: fixed;
+    bottom: 60px;
+    right: 25px;
+    z-index: 10;
+}
+
+.fold img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.unfold {
+    position: fixed;
+    bottom: 60px;
+    right: 103px;
+    z-index: 10;
+}
+
+.unfold img {
+    margin-right: 5px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer
+}

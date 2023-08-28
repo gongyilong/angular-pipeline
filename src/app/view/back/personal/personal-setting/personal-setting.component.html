@@ -1,0 +1,42 @@
+<div nz-row [nzGutter]="16">
+    <div nz-col class="gutter-row" [nzSpan]="24">
+        <div class="inner-box">
+            <nz-card class="info">
+                <h3>个人信息修改</h3>
+                <nz-divider></nz-divider>
+                <div nz-row class="base-info">
+                    <div nz-col [nzXs]="{ span: 5, offset: 1 }" [nzLg]="{ span: 6, offset: 2 }">
+                        <i nz-icon nzType="tag" nzTheme="outline"></i><label>&nbsp;名称：{{user.UserName}}</label>
+                    </div>
+                    <div nz-col [nzXs]="{ span: 11, offset: 1 }" [nzLg]="{ span: 6, offset: 2 }">
+                        <i nz-icon nzType="tag" nzTheme="outline"></i><label>&nbsp;角色：{{user.Role}}</label>
+                    </div>
+                    <div nz-col [nzXs]="{ span: 5, offset: 1 }" [nzLg]="{ span: 6, offset: 2 }">
+                        <i nz-icon nzType="partition" nzTheme="outline"></i>
+                        <label>&nbsp;部门：</label>
+                        <input [(ngModel)]="user.Department" style="width: 50%;" nz-input placeholder="{{user.Department}}" />
+                    </div>
+                </div>
+                <div nz-row class="base-info">
+                    <div nz-col [nzXs]="{ span: 5, offset: 1 }" [nzLg]="{ span: 6, offset: 2 }">
+                        <i nz-icon nzType="phone" nzTheme="outline"></i>
+                        <label>&nbsp;联系电话：</label>
+                        <input [(ngModel)]="user.PhoneNum" style="width: 50%;" nz-input placeholder="{{user.PhoneNum}}" />
+                    </div>
+                    <div nz-col [nzXs]="{ span: 11, offset: 1 }" [nzLg]="{ span: 10, offset: 2 }">
+                        <i nz-icon nzType="mail" nzTheme="outline"></i>
+                        <label>&nbsp;电子邮箱：</label>
+                        <input [(ngModel)]="user.Email" style="width: 50%;" nz-input placeholder="{{user.Email}}" />
+                    </div>
+                </div>
+                <br><br>
+                <nz-divider></nz-divider>
+                <div nz-row class="base-info">
+                    <div nz-col nzSpan="4" nzOffset="11">
+                        <button [nzLoading]="isLoading" (click)="updateUser()" nz-button nzType="primary">更新基本信息</button>
+                    </div>
+                </div>
+            </nz-card>
+        </div>
+    </div>
+</div>

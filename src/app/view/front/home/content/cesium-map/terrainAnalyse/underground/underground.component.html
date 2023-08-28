@@ -1,0 +1,25 @@
+<div id="exampleContainer" class="exampleContainer" [ngStyle]="windowStyle">
+    <div class="exampleName"> 地形透明度 </div>
+    <div class="exampleContainerContent">
+
+        <!-- 是否开启地表透明 -->
+        <div class="item">
+            <span class="note">是否开启地表透明:</span>
+            <label class="note" nz-checkbox [(ngModel)]="checked" (ngModelChange)="showTerrainChange($event)"></label>
+        </div>
+
+        <!-- 透明度 -->
+        <div class="item">
+            <span class="note">透明度设置:&nbsp; &nbsp;</span>
+            <input style="cursor: pointer;" type="range" min="0" max="1" step="0.1" [(ngModel)]="fillOpcity" (ngModelChange)="fillOpcityChange($event)">
+            <p style="color: aqua;font-size: xx-small;" ngDefaultControl [(ngModel)]="fillOpcity">{{fillOpcity}}</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="exampleContainerEF">
+    <img *ngIf="isColse" class="exampleContainerClose" id="exampleContainerClose" nz-tooltip nzPlacement="right" [nzTitle]="'关闭'" (click)="closeWindow()" src="../../../../../../../../assets/others/close.png" alt>
+    <img *ngIf="isFold" class="exampleContainerFold" id="exampleContainerFold" nz-tooltip nzPlacement="right" [nzTitle]="'折叠'" (click)="foldWindow()" src="../../../../../../../../assets/others/fold.png" alt>
+    <img *ngIf="isExpand" class="exampleContainerExpand" id="exampleContainerExpand" nz-tooltip nzPlacement="right" [nzTitle]="'展开'" (click)="expandWindow()" src="../../../../../../../../assets/others/expand.png" alt>
+</div>

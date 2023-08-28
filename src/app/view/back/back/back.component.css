@@ -1,0 +1,142 @@
+.trigger {
+    font-size: 18px;
+    line-height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+    vertical-align: middle;
+    margin: 4px auto;
+}
+
+.trigger:hover {
+    color: #1890ff;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    /* padding: 16px 8px; */
+}
+
+.logo img {
+    display: inline-block;
+    height: 48px;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+nz-header {
+    width: 100%;
+    background: #fff;
+    padding: 0;
+}
+
+nz-content {
+    min-height: 620px;
+    margin: 8px 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+nz-breadcrumb {
+    margin: 8px 0;
+}
+
+.inner-content {
+    padding: 24px;
+    background: #fff;
+    min-height: 600px;
+}
+
+nz-footer {
+    text-align: center;
+}
+
+.ant-menu-inline-collapsed {
+    width: 48px;
+}
+
+.logo h1 {
+    display: inline-block;
+    height: 48px;
+    /* margin: 0 0 0 6px; */
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 48px;
+    vertical-align: middle;
+    animation: layout-title-hide .3s;
+    padding: 4px 2px;
+}
+
+@keyframes layout-title-hide {
+    0% {
+        display: none;
+        opacity: 0
+    }
+    80% {
+        display: none;
+        opacity: 0
+    }
+    to {
+        display: unset;
+        opacity: 1
+    }
+}
+
+.ant-layout-footer {
+    padding: 8px 50px;
+}
+
+.ant-layout-header {
+    width: 100%;
+    position: fixed;
+    height: 48px;
+    line-height: 48px;
+}
+
+.sider-layout {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    left: 0;
+}
+
+.right-layout {
+    position: relative;
+}
+
+.head-layout {
+    z-index: 999;
+    width: 100%;
+    height: 48px;
+}
+
+.nav1 {
+    position: fixed;
+    right: 0.5rem;
+    cursor: pointer;
+}
+
+.nav2 {
+    line-height: 56px;
+    position: fixed;
+    right: 8.5rem;
+    cursor: pointer;
+}
+
+.content {
+    overflow: -Scroll;
+    overflow-y: hidden
+}
+
+:host ::ng-deep .ant-menu-submenu-title {
+    padding: 0 12px !important;
+}
+
+:host ::ng-deep .ant-layout {
+    width: 100% !important;
+    flex: inherit;
+}

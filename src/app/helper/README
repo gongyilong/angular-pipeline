@@ -1,0 +1,16 @@
+# helper说明：
+# helper存放帮助类，也就是第三方封装的类库
+# 目录：
++ helper
+  + arcgis（arcgis api for js 封装类）
+    + base.service.ts（地图基础配置）
+    + query.service.ts（查询方法大全）
+    + gp.service.ts（定制的gp服务）
+  + cesium（cesium 二次封装）
+    + base.service.ts（cesium地图基础配置）
+    + ...
+  + auth
+    + auth.guard.ts（路由守卫）
+    + auth.service.ts（授权验证）
+  + erro
+    + erro（错误处理）
